@@ -1,7 +1,7 @@
 # si-project
 Files:
 - evaluate-v2.0.py: Function evaluation already done. It is the official evaluation.
-- run_quad.py: File used to train the models. This code already have been developed beacuse it is so complicated to train by ourselves.
+- run_squad.py: File used to train the models. This code already have been developed beacuse it is so complicated to train by ourselves.
 - main.ipynb: The main code, that executes all
 
 - dev-v2.0.json: Our test file. Answering these questions, we obtain the evaluation
