@@ -12,5 +12,5 @@ Files:
 ===============================
 To make the predictions, use the main.ipynb. The output of this must be a file like the example_pred.json
 To evaluate (calculate F1-score), run this command (in the terminal, inside the project folder):
-- python evaluate-v2.0.py dev-v2.0.json predictions.json
+- python evaluate-v2.0.py json/dev-v2.0.json json/predictions.json
 
