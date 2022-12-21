@@ -90,8 +90,6 @@ class DocumentReader:
                 ans = self.convert_ids_to_string(chunk['input_ids'][0][answer_start:answer_end])
                 if ans != '[CLS]':
                     answer += ans + " / "
-                else:
-                    ans = ''
             return answer
         else:
             r = self.model(**self.inputs)
@@ -101,8 +99,12 @@ class DocumentReader:
             
             answer_start = torch.argmax(answer_start_scores)  # get the most likely beginning of answer with the argmax of the score
             answer_end = torch.argmax(answer_end_scores) + 1  # get the most likely end of answer with the argmax of the score
-            return self.convert_ids_to_string(self.inputs['input_ids'][0][
+            final_answer = self.convert_ids_to_string(self.inputs['input_ids'][0][
                                               answer_start:answer_end])
+            if final_answer == '[CLS]':
+                final_answer = ''
+                
+            return final_answer
 
     def convert_ids_to_string(self, input_ids):
         return self.tokenizer.convert_tokens_to_string(self.tokenizer.convert_ids_to_tokens(input_ids))
@@ -131,5 +133,5 @@ for i in data['data']:
             if(cont%100==0):
                 print(f"{cont}, ID: {id_q}")
             
-with open("json/sample.json", "w") as outfile: 
+with open("json/predictions.json", "w") as outfile: 
     json.dump(answers, outfile) 
