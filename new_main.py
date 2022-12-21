@@ -90,6 +90,8 @@ class DocumentReader:
                 ans = self.convert_ids_to_string(chunk['input_ids'][0][answer_start:answer_end])
                 if ans != '[CLS]':
                     answer += ans + " / "
+                else:
+                    ans = ''
             return answer
         else:
             r = self.model(**self.inputs)
