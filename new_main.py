@@ -1,7 +1,7 @@
-import urllib.request
+#import urllib.request
 import torch
-import wikipedia as wiki
-import pprint as pp
+#import wikipedia as wiki
+#import pprint as pp
 from collections import OrderedDict
 import logging
 import json
@@ -103,7 +103,7 @@ class DocumentReader:
                                               answer_start:answer_end])
             if final_answer == '[CLS]':
                 final_answer = ''
-                
+
             return final_answer
 
     def convert_ids_to_string(self, input_ids):
