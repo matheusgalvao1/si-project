@@ -14,7 +14,7 @@ COPY evaluate-v2.0.py /usr/app/
 #RUN pip install transformers==2.5.1
 
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir transformers torch
+    pip install --no-cache-dir transformers torch numpy
 
 #RUN pip install --no-cache-dir --upgrade pip && \
 #   pip install --no-cache-dir collections logging json torch torchvision transformers
