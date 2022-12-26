@@ -110,8 +110,8 @@ for i in models:
     
 ## Calculate the scores
 for i in models:
-    pred = "preds_" + i + ".json"
-    os.system('cmd /k "python evaluate-v2.0.py dev-v2.0.json ' + pred)
+    pred = os.path.join("predictions", "preds_" + i + ".json")
+    os.system('cmd /k "python utils/evaluate-v2.0.py data/dev-v2.0.json ' + pred)
 
 print("AVG TIME:")
 for i in [0,1,2]:
